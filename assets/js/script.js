@@ -1,24 +1,40 @@
 
+      
         function clearDisplay() {
-            document.getElementById('display').value = '';
+            $('#display').val('');
         }
-
+        
         function deleteLast() {
-            let currentDisplay = document.getElementById('display').value;
-            document.getElementById('display').value = currentDisplay.slice(0, -1);
+            let currentDisplay = $('#display').val();
+            $('#display').val(currentDisplay.slice(0, -1));
         }
-
+        
         function displayvalue(value) {
-            document.getElementById('display').value += value;
+            $('#display').val(function(i, val) {
+                return val + value;
+            });
         }
-
+        
         function calculate() {
             try {
-                let expression = document.getElementById('display').value;
+                let expression = $('#display').val();
                 let result = eval(expression);
-                document.getElementById('display').value = result;
+                $('#display').val(result);
             } catch (error) {
-                document.getElementById('display').value = 'Error';
+                $('#display').val('Error');
             }
         }
-    
+        
+        function calculatePercentage() {
+            let currentInput = $('#display').val();
+            if (currentInput !== '') {
+                let value = parseFloat(currentInput); 
+                if (!isNaN(value)) { 
+                    let percentageValue = value / 100; 
+                    $('#display').val(percentageValue); 
+                } else {
+                    $('#display').val('Error');
+                }
+            }
+        }
+        

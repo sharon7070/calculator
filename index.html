@@ -6,46 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body>
-    <div class="container">
-        <div class="calculator">
-            <form action="">
-                <div class="display">
-                    <input type="text" name="display" id="display" disabled>
+<body class="bg-gray-200">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="bg-black p-6 rounded-lg shadow-lg shadow-black/50 w-full max-w-sm sm:max-w-md ">
+            <form>
+                <div class="mb-6">
+                    <input type="text" name="display" id="display" disabled
+                        class="w-full text-right text-4xl p-4 bg-white rounded-xl text-black">
                 </div>
-                <div>
-                    <input type="button" value="AC" class="equal" onclick="clearDisplay()">
-                    <input type="button" value="DEL" class="operator" onclick="deleteLast()">
-                    <input type="button" value="." class="operator" onclick="displayvalue('.')">
-                    <input type="button" value="/" class="operator" onclick="displayvalue('/')">
-                </div>
-                <div>
-                    <input type="button" value="*" class="operator" onclick="displayvalue('*')">
-                    <input type="button" value="7" onclick="displayvalue('7')">
-                    <input type="button" value="8" onclick="displayvalue('8')">
-                    <input type="button" value="9" onclick="displayvalue('9')">
-                </div>
-                <div>
-                    <input type="button" value="-" class="operator" onclick="displayvalue('-')">
-                    <input type="button" value="4" onclick="displayvalue('4')">
-                    <input type="button" value="5" onclick="displayvalue('5')">
-                    <input type="button" value="6" onclick="displayvalue('6')">
-                </div>
-                <div>
-                    <input type="button" value="+" class="operator" onclick="displayvalue('+')">
-                    <input type="button" value="1" onclick="displayvalue('1')">
-                    <input type="button" value="2" onclick="displayvalue('2')">
-                    <input type="button" value="3" onclick="displayvalue('3')">
-                </div>
-                <div>
-                    <input type="button" value="%" class="operator" onclick="displayvalue('%')">
-                    <input type="button" value="00" onclick="displayvalue('00')">
-                    <input type="button" value="0" onclick="displayvalue('0')">
-                    <input type="button" value="=" class="equal" onclick="calculate()">
+                <div class="grid grid-cols-4 gap-4">
+                    <input type="button" value="AC"
+                        class="bg-red-600  text-white rounded-xl p-4 shadow-lg shadow-gray/50 hover:bg-red-500 cursor-pointer"
+                        onclick="clearDisplay()">
+                    <input type="button" value="DEL"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="deleteLast()">
+                    <input type="button" value="."
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('.')">
+                    <input type="button" value="/"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('/')">
+
+                    <input type="button" value="*"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('*')">
+                    <input type="button" value="7"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('7')">
+                    <input type="button" value="8"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('8')">
+                    <input type="button" value="9"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('9')">
+
+                    <input type="button" value="-"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('-')">
+                    <input type="button" value="4"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('4')">
+                    <input type="button" value="5"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('5')">
+                    <input type="button" value="6"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('6')">
+
+                    <input type="button" value="+"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('+')">
+                    <input type="button" value="1"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('1')">
+                    <input type="button" value="2"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('2')">
+                    <input type="button" value="3"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('3')">
+
+                    <input type="button" value="%"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="calculatePercentage()">
+                    <input type="button" value="00"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('00')">
+                    <input type="button" value="0"
+                        class="bg-gray-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-gray-500 cursor-pointer"
+                        onclick="displayvalue('0')">
+                    <input type="button" value="="
+                        class="bg-red-600 text-white rounded-xl p-4 shadow-lg shadow-black/50 hover:bg-red-500 cursor-pointer"
+                        onclick="calculate()">
                 </div>
             </form>
         </div>
